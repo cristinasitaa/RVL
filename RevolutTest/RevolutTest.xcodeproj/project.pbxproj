@@ -53,12 +53,36 @@
 			isa = PBXGroup;
 			children = (
 				3422A67B1FA07CD3007EB0C6 /* AppDelegate.swift */,
+				3422A68D1FA1DEB0007EB0C6 /* Models */,
+				3422A68E1FA1DEBC007EB0C6 /* WebServiceManager */,
+				3422A68F1FA1DED5007EB0C6 /* UI */,
 				3422A67D1FA07CD3007EB0C6 /* ViewController.swift */,
 				3422A6821FA07CD3007EB0C6 /* Assets.xcassets */,
 				3422A6841FA07CD3007EB0C6 /* LaunchScreen.storyboard */,
 				3422A6871FA07CD3007EB0C6 /* Info.plist */,
 			);
 			path = RevolutTest;
+			sourceTree = "<group>";
+		};
+		3422A68D1FA1DEB0007EB0C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3422A68E1FA1DEBC007EB0C6 /* WebServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebServiceManager;
+			sourceTree = "<group>";
+		};
+		3422A68F1FA1DED5007EB0C6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
