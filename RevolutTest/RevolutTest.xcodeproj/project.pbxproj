@@ -12,6 +12,8 @@
 		3422A67E1FA07CD3007EB0C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A67D1FA07CD3007EB0C6 /* ViewController.swift */; };
 		3422A6831FA07CD3007EB0C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3422A6821FA07CD3007EB0C6 /* Assets.xcassets */; };
 		3422A6861FA07CD3007EB0C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3422A6841FA07CD3007EB0C6 /* LaunchScreen.storyboard */; };
+		3422A6911FA1E3CA007EB0C6 /* RVCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A6901FA1E3CA007EB0C6 /* RVCurrency.swift */; };
+		3422A6931FA1E3E0007EB0C6 /* RVWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A6921FA1E3E0007EB0C6 /* RVWebServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3422A6821FA07CD3007EB0C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3422A6851FA07CD3007EB0C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3422A6871FA07CD3007EB0C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3422A6901FA1E3CA007EB0C6 /* RVCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVCurrency.swift; sourceTree = "<group>"; };
+		3422A6921FA1E3E0007EB0C6 /* RVWebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVWebServiceManager.swift; sourceTree = "<group>"; };
 		41CD21E94CFE9A875CEBB393 /* Pods_RevolutTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7020B316EB362452FFD3368 /* Pods-RevolutTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTest/Pods-RevolutTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +95,7 @@
 		3422A68D1FA1DEB0007EB0C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3422A6901FA1E3CA007EB0C6 /* RVCurrency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 		3422A68E1FA1DEBC007EB0C6 /* WebServiceManager */ = {
 			isa = PBXGroup;
 			children = (
+				3422A6921FA1E3E0007EB0C6 /* RVWebServiceManager.swift */,
 			);
 			path = WebServiceManager;
 			sourceTree = "<group>";
@@ -238,6 +244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3422A67E1FA07CD3007EB0C6 /* ViewController.swift in Sources */,
+				3422A6911FA1E3CA007EB0C6 /* RVCurrency.swift in Sources */,
+				3422A6931FA1E3E0007EB0C6 /* RVWebServiceManager.swift in Sources */,
 				3422A67C1FA07CD3007EB0C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
