@@ -21,6 +21,9 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "RVConverterTableViewCell", bundle: nil), forCellReuseIdentifier: "RVConverterTableViewCell")
+        
+        let euroRate = RVRate(withString: "EUR 1")
+        self.items.append(euroRate)
 
         self.getLatest()
     }
@@ -57,6 +60,7 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "RVConverterTableViewCell") as! RVConverterTableViewCell!
         cell?.currencyLabel.text = self.items[indexPath.row].shortCurrencyName
         cell?.amountTextField.text = String(self.items[indexPath.row].value * self.amount)
+        cell?.imageView?.image = UIImage(named: self.items[indexPath.row].shortCurrencyName)
 
         return cell!
     }

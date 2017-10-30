@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0EF8755274F4FC020CFB7106 /* Pods_RevolutTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CD21E94CFE9A875CEBB393 /* Pods_RevolutTest.framework */; };
+		340F122A1FA76ECB006CB164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 340F12291FA76ECB006CB164 /* Assets.xcassets */; };
 		3422A67C1FA07CD3007EB0C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A67B1FA07CD3007EB0C6 /* AppDelegate.swift */; };
-		3422A6831FA07CD3007EB0C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3422A6821FA07CD3007EB0C6 /* Assets.xcassets */; };
 		3422A6861FA07CD3007EB0C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3422A6841FA07CD3007EB0C6 /* LaunchScreen.storyboard */; };
 		3422A6911FA1E3CA007EB0C6 /* RVCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A6901FA1E3CA007EB0C6 /* RVCurrency.swift */; };
 		3422A6931FA1E3E0007EB0C6 /* RVWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A6921FA1E3E0007EB0C6 /* RVWebServiceManager.swift */; };
@@ -23,9 +23,9 @@
 
 /* Begin PBXFileReference section */
 		01ADFFD16F4447AF0BF65FE1 /* Pods-RevolutTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTest/Pods-RevolutTest.debug.xcconfig"; sourceTree = "<group>"; };
+		340F12291FA76ECB006CB164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3422A6781FA07CD3007EB0C6 /* RevolutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3422A67B1FA07CD3007EB0C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3422A6821FA07CD3007EB0C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3422A6851FA07CD3007EB0C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3422A6871FA07CD3007EB0C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3422A6901FA1E3CA007EB0C6 /* RVCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVCurrency.swift; sourceTree = "<group>"; };
@@ -72,6 +72,7 @@
 		3422A66F1FA07CD3007EB0C6 = {
 			isa = PBXGroup;
 			children = (
+				340F12291FA76ECB006CB164 /* Assets.xcassets */,
 				3422A67A1FA07CD3007EB0C6 /* RevolutTest */,
 				3422A6791FA07CD3007EB0C6 /* Products */,
 				0BB5BADE0F1532E10B606134 /* Pods */,
@@ -94,7 +95,6 @@
 				3422A68D1FA1DEB0007EB0C6 /* Models */,
 				3422A68E1FA1DEBC007EB0C6 /* WebServiceManager */,
 				3422A68F1FA1DED5007EB0C6 /* UI */,
-				3422A6821FA07CD3007EB0C6 /* Assets.xcassets */,
 				3422A6841FA07CD3007EB0C6 /* LaunchScreen.storyboard */,
 				3422A6871FA07CD3007EB0C6 /* Info.plist */,
 				3422A6C41FA3247A007EB0C6 /* RVConstants.swift */,
@@ -226,8 +226,8 @@
 			files = (
 				3438AB0F1FA744B70024B9C7 /* RVConverterTableViewCell.xib in Resources */,
 				3438AB081FA3690A0024B9C7 /* RVConverterTableViewController.xib in Resources */,
+				340F122A1FA76ECB006CB164 /* Assets.xcassets in Resources */,
 				3422A6861FA07CD3007EB0C6 /* LaunchScreen.storyboard in Resources */,
-				3422A6831FA07CD3007EB0C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

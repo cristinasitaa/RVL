@@ -19,21 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-R5-lcm">
-                        <rect key="frame" x="20" y="8" width="50" height="53"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-R5-lcm">
+                        <rect key="frame" x="20" y="8" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="DEo-B7-Ag4"/>
-                            <constraint firstAttribute="height" constant="53" id="ERp-o8-Kbk"/>
+                            <constraint firstAttribute="width" constant="40" id="5Fy-i4-Q5j"/>
+                            <constraint firstAttribute="height" constant="40" id="mSY-ee-bZR"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longer description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBx-fM-XwF">
-                        <rect key="frame" x="85" y="40" width="144" height="21"/>
+                        <rect key="frame" x="75" y="40" width="144" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck3-gQ-ZqW">
-                        <rect key="frame" x="85" y="8" width="38.5" height="24"/>
+                        <rect key="frame" x="75" y="8" width="39" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="s9D-eq-hwe"/>
                         </constraints>
@@ -53,8 +53,8 @@
                     <constraint firstItem="Ck3-gQ-ZqW" firstAttribute="leading" secondItem="jmM-R5-lcm" secondAttribute="trailing" constant="15" id="BQw-Kb-xuY"/>
                     <constraint firstItem="QBx-fM-XwF" firstAttribute="leading" secondItem="jmM-R5-lcm" secondAttribute="trailing" constant="15" id="CPc-3O-E69"/>
                     <constraint firstItem="jmM-R5-lcm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="FOl-VV-PxR"/>
-                    <constraint firstItem="jmM-R5-lcm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="SyA-Ff-jhP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="QBx-fM-XwF" secondAttribute="bottom" constant="6.5" id="bEi-iA-Cb0"/>
+                    <constraint firstItem="jmM-R5-lcm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="bZv-2X-8nO"/>
                     <constraint firstItem="aau-sV-LSM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="c3J-B9-Vus"/>
                     <constraint firstAttribute="bottomMargin" secondItem="aau-sV-LSM" secondAttribute="bottom" constant="14.5" id="erS-nk-I4I"/>
                     <constraint firstItem="QBx-fM-XwF" firstAttribute="top" secondItem="Ck3-gQ-ZqW" secondAttribute="bottom" constant="8" id="fW9-G0-jaY"/>
