@@ -9,5 +9,8 @@
 import UIKit
 
 class RVCurrency: NSObject {
+    var base: String!
+    var date: Date!
+    var rates: [RVRate]!
 
 }

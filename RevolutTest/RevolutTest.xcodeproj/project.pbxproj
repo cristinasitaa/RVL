@@ -16,6 +16,9 @@
 		3422A6C51FA3247A007EB0C6 /* RVConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422A6C41FA3247A007EB0C6 /* RVConstants.swift */; };
 		3438AB071FA3690A0024B9C7 /* RVConverterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438AB051FA3690A0024B9C7 /* RVConverterTableViewController.swift */; };
 		3438AB081FA3690A0024B9C7 /* RVConverterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3438AB061FA3690A0024B9C7 /* RVConverterTableViewController.xib */; };
+		3438AB0A1FA36DF30024B9C7 /* RVRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438AB091FA36DF30024B9C7 /* RVRate.swift */; };
+		3438AB0E1FA744B70024B9C7 /* RVConverterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438AB0C1FA744B60024B9C7 /* RVConverterTableViewCell.swift */; };
+		3438AB0F1FA744B70024B9C7 /* RVConverterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3438AB0D1FA744B70024B9C7 /* RVConverterTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		3422A6C41FA3247A007EB0C6 /* RVConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVConstants.swift; sourceTree = "<group>"; };
 		3438AB051FA3690A0024B9C7 /* RVConverterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVConverterTableViewController.swift; sourceTree = "<group>"; };
 		3438AB061FA3690A0024B9C7 /* RVConverterTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RVConverterTableViewController.xib; sourceTree = "<group>"; };
+		3438AB091FA36DF30024B9C7 /* RVRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVRate.swift; sourceTree = "<group>"; };
+		3438AB0C1FA744B60024B9C7 /* RVConverterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVConverterTableViewCell.swift; sourceTree = "<group>"; };
+		3438AB0D1FA744B70024B9C7 /* RVConverterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RVConverterTableViewCell.xib; sourceTree = "<group>"; };
 		41CD21E94CFE9A875CEBB393 /* Pods_RevolutTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7020B316EB362452FFD3368 /* Pods-RevolutTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTest/Pods-RevolutTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				3422A6901FA1E3CA007EB0C6 /* RVCurrency.swift */,
+				3438AB091FA36DF30024B9C7 /* RVRate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,8 +122,8 @@
 		3422A68F1FA1DED5007EB0C6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3438AB031FA368D90024B9C7 /* ViewControllers */,
 				3438AB021FA368C80024B9C7 /* CustomUI */,
+				3438AB031FA368D90024B9C7 /* ViewControllers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 		3438AB021FA368C80024B9C7 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				3438AB0B1FA744850024B9C7 /* ConverterTableViewCell */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -143,6 +151,15 @@
 				3438AB061FA3690A0024B9C7 /* RVConverterTableViewController.xib */,
 			);
 			path = ConverterTableViewController;
+			sourceTree = "<group>";
+		};
+		3438AB0B1FA744850024B9C7 /* ConverterTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3438AB0C1FA744B60024B9C7 /* RVConverterTableViewCell.swift */,
+				3438AB0D1FA744B70024B9C7 /* RVConverterTableViewCell.xib */,
+			);
+			path = ConverterTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3438AB0F1FA744B70024B9C7 /* RVConverterTableViewCell.xib in Resources */,
 				3438AB081FA3690A0024B9C7 /* RVConverterTableViewController.xib in Resources */,
 				3422A6861FA07CD3007EB0C6 /* LaunchScreen.storyboard in Resources */,
 				3422A6831FA07CD3007EB0C6 /* Assets.xcassets in Resources */,
@@ -275,10 +293,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3422A6911FA1E3CA007EB0C6 /* RVCurrency.swift in Sources */,
+				3438AB0A1FA36DF30024B9C7 /* RVRate.swift in Sources */,
 				3438AB071FA3690A0024B9C7 /* RVConverterTableViewController.swift in Sources */,
 				3422A6931FA1E3E0007EB0C6 /* RVWebServiceManager.swift in Sources */,
 				3422A6C51FA3247A007EB0C6 /* RVConstants.swift in Sources */,
 				3422A67C1FA07CD3007EB0C6 /* AppDelegate.swift in Sources */,
+				3438AB0E1FA744B70024B9C7 /* RVConverterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
