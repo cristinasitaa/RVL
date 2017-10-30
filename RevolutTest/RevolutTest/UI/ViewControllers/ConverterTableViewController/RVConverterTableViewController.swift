@@ -8,29 +8,28 @@
 
 import UIKit
 
-class RVConverterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RVConverterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var items = [RVRate]()
     
-    var base = "EUR"
-    var amount = 100.00
+    var selectedRate = RVRate(withString: "EUR 1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "RVConverterTableViewCell", bundle: nil), forCellReuseIdentifier: "RVConverterTableViewCell")
         
-        let euroRate = RVRate(withString: "EUR 1")
-        self.items.append(euroRate)
-
+        self.items.append(self.selectedRate)
         self.getLatest()
     }
     
     func getLatest() {
-        RVWebServiceManager.sharedInstance.getLatest(base: self.base) { (response) in
+        RVWebServiceManager.sharedInstance.getLatest(base: self.selectedRate.shortCurrencyName) { (response) in
             response.result.ifSuccess {
+                self.items.removeAll()
+                self.items.append(self.selectedRate)
                 var responseDict = response.result.value as! [String:Any]
                 let responseRatesDict = responseDict["rates"] as! [String:Float]
                 let rawItemsArray = responseRatesDict.map {"\($0) \($1)"}
@@ -38,10 +37,11 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
                     let rate = RVRate(withString: item)
                     self.items.append(rate)
                 }
+                
                 self.tableView.reloadData()
             }
             response.result.ifFailure {
-                
+                print(response.error?.localizedDescription ?? String())
             }
         }
     }
@@ -59,14 +59,32 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RVConverterTableViewCell") as! RVConverterTableViewCell!
         cell?.currencyLabel.text = self.items[indexPath.row].shortCurrencyName
-        cell?.amountTextField.text = String(self.items[indexPath.row].value * self.amount)
+        cell?.amountTextField.text = String(self.items[indexPath.row].value * self.selectedRate.value)
         cell?.imageView?.image = UIImage(named: self.items[indexPath.row].shortCurrencyName)
+        cell?.amountTextField.delegate = self
 
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! RVConverterTableViewCell
+        let rate = self.items.remove(at: indexPath.row)
+        self.items.insert(rate, at: 0)
+        cell.amountTextField.becomeFirstResponder()
+    }
+    
+    //MARK: - UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+       
+        self.selectedRate = self.items[0]
+        self.selectedRate.value = Double(textField.text!)
+        self.getLatest()
+        
+        return true
     }
 
 }
