@@ -22,10 +22,10 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
         self.tableView.register(UINib(nibName: "RVConverterTableViewCell", bundle: nil), forCellReuseIdentifier: "RVConverterTableViewCell")
         
         self.items.append(self.selectedRate)
-        self.getLatest()
+        self.getLatest(withFullReload: true)
     }
     
-    func getLatest() {
+    func getLatest(withFullReload: Bool) {
         RVWebServiceManager.sharedInstance.getLatest(base: self.selectedRate.shortCurrencyName) { (response) in
             response.result.ifSuccess {
                 self.items.removeAll()
@@ -33,12 +33,22 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
                 var responseDict = response.result.value as! [String:Any]
                 let responseRatesDict = responseDict["rates"] as! [String:Float]
                 let rawItemsArray = responseRatesDict.map {"\($0) \($1)"}
+                var row = 1
                 for item in rawItemsArray {
                     let rate = RVRate(withString: item)
                     self.items.append(rate)
+                    if (!withFullReload) {
+                        let indexPath = IndexPath(item: row, section: 0)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadRows(at: [indexPath], with: .none)
+                        }
+                        row = row + 1
+                    }
                 }
                 
-                self.tableView.reloadData()
+                if (withFullReload) {
+                    self.tableView.reloadData()
+                }
             }
             response.result.ifFailure {
                 print(response.error?.localizedDescription ?? String())
@@ -82,7 +92,7 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
        
         self.selectedRate = self.items[0]
         self.selectedRate.value = Double(textField.text!)
-        self.getLatest()
+        self.getLatest(withFullReload: false)
         
         return true
     }
