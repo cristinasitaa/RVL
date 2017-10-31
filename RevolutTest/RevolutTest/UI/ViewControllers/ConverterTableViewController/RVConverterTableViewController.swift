@@ -8,14 +8,17 @@
 
 import UIKit
 
-class RVConverterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class RVConverterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     var items = [RVRate]()
     
-    var selectedRate = RVRate(withString: "EUR 1")
+    var selectedRate = RVRate(withString: "EUR 0")
     
+    var timer: Timer!
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +26,10 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
         
         self.items.append(self.selectedRate)
         self.getLatest(withFullReload: true)
+        self.startTimer()
     }
     
+    //MARK:- Data
     func getLatest(withFullReload: Bool) {
         RVWebServiceManager.sharedInstance.getLatest(base: self.selectedRate.shortCurrencyName) { (response) in
             response.result.ifSuccess {
@@ -47,7 +52,9 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
                 }
                 
                 if (withFullReload) {
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
             response.result.ifFailure {
@@ -69,32 +76,49 @@ class RVConverterTableViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RVConverterTableViewCell") as! RVConverterTableViewCell!
         cell?.currencyLabel.text = self.items[indexPath.row].shortCurrencyName
-        cell?.amountTextField.text = String(self.items[indexPath.row].value * self.selectedRate.value)
+        if (self.selectedRate.value != nil) {
+            cell?.amountTextField.text = String(self.items[indexPath.row].value * self.selectedRate.value)
+        } else {
+            cell?.amountTextField.text = "0"
+        }
         cell?.imageView?.image = UIImage(named: self.items[indexPath.row].shortCurrencyName)
-        cell?.amountTextField.delegate = self
-
+        cell?.amountTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
-        let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! RVConverterTableViewCell
+        self.timer.invalidate()
+       
         let rate = self.items.remove(at: indexPath.row)
         self.items.insert(rate, at: 0)
-        cell.amountTextField.becomeFirstResponder()
-    }
-    
-    //MARK: - UITextFieldDelegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-       
         self.selectedRate = self.items[0]
-        self.selectedRate.value = Double(textField.text!)
+       
+        self.tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! RVConverterTableViewCell
+        cell.amountTextField.becomeFirstResponder()
+        self.textFieldDidChange(textField: cell.amountTextField)
+      
         self.getLatest(withFullReload: false)
-        
-        return true
+        self.startTimer()
     }
-
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
+    
+    //MARK: - UITextField
+    @objc func textFieldDidChange(textField: UITextField) {
+        let formatter = NumberFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
+        let double = formatter.number(from: textField.text!)
+        
+        self.selectedRate.value = double?.doubleValue
+    }
+    
+    //MARK:- Timer
+    func startTimer() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.getLatest(withFullReload: false)
+        }
+    }
 }
